@@ -1,0 +1,13 @@
+/node_modules
+
+auth-backend/
+├── controllers/
+│   └── authController.js
+├── models/
+│   └── User.js
+├── routes/
+│   └── authRoutes.js
+├── middleware/
+│   └── authMiddleware.js
+├── .env
+├── server.js
