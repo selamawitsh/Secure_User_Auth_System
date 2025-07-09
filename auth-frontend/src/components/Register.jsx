@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 
     function Register() {
@@ -41,7 +42,7 @@ import axios from 'axios';
             <input type="password" id="password" name="password" onChange={handleInputChange} required />
             </div>
             <button type="submit">Register</button>
-            <p>Already have an account? <a href="/login">Login</a></p>
+            <p>Already have an account?  <Link to="/login">Login</Link></p>
         </form>
       
     </>
