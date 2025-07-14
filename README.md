@@ -57,19 +57,10 @@ auth-frontend/
    ```sh
    npm install
    ```
-3. Create a `.env` file (see `.env` example below).
-4. Start the backend server:
+3. Start the backend server:
    ```sh
    npm run dev
    ```
-
-#### Example `.env` file
-
-```
-PORT=4000
-MONGO_URI=mongodb://localhost:27017/auth-backend
-JWT_SECRET=your_jwt_secret_key
-```
 
 ### Frontend Setup
 
