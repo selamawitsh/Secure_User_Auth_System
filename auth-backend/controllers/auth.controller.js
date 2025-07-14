@@ -10,6 +10,11 @@ const registerUser = async (req, res) => {
             return res.status(400).json({message: "User already exists"});
         }
 
+        const existingUsername = await User.findOne({ username });
+            if (existingUsername) {
+            return res.status(400).json({ message: "Username already taken" });
+        }
+
         const hashedPassword = bcrypt.hashSync(password, 10);
         const newUser = new User({
             username: username,
@@ -19,7 +24,7 @@ const registerUser = async (req, res) => {
 
         await newUser.save();
         res.status(201).json({message: "User registered successfully"});
-        
+       
         
     } catch (error) {
         console.error("Error registering user:", error);
@@ -42,7 +47,6 @@ const loginUser = async (req, res) => {
         
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.status(200).json({ message: "Login successful", token: token });
-
 
     } catch (error) {
         console.error("Error logging in user:", error);
